@@ -1,0 +1,101 @@
+id_dt,dt_nombre,fecha_nacimiento,estado_actual_dt
+1,José Pékerman,1949-09-03,Retirado
+2,César Luis Menotti,1938-11-05,Retirado
+3,Guillermo Stábile,1905-01-17,Fallecido
+4,Alfio Basile,1943-11-01,Retirado
+5,Vladislao Cap,1934-07-05,Fallecido
+6,Daniel Passarella,1953-05-25,Retirado
+7,Marcelo Bielsa,1955-07-21,Trabajando
+8,Marcelo Bielsa,1955-07-21,Trabajando
+9,José Pékerman,1949-09-03,Retirado
+10,Alfio Basile,1943-11-01,Retirado
+11,César Luis Menotti,1938-11-05,Retirado
+12,Daniel Passarella,1953-05-25,Retirado
+13,Vladislao Cap,1934-07-05,Fallecido
+14,César Luis Menotti,1938-11-05,Retirado
+15,Daniel Passarella,1953-05-25,Retirado
+16,César Luis Menotti,1938-11-05,Retirado
+17,Alfio Basile,1943-11-01,Retirado
+18,Marcelo Bielsa,1955-07-21,Trabajando
+19,Alfio Basile,1943-11-01,Retirado
+20,Marcelo Bielsa,1955-07-21,Trabajando
+21,César Luis Menotti,1938-05-11,Retirado
+22,César Luis Menotti,1938-05-11,Retirado
+23,Juan Carlos Lorenzo,1922-10-27,Fallecido
+24,César Luis Menotti,1938-05-11,Retirado
+25,Carlos Bilardo,1939-03-16,Fallecido
+26,Carlos Bilardo,1939-03-16,Fallecido
+27,Carlos Bilardo,1939-03-16,Fallecido
+28,Carlos Bilardo,1939-03-16,Fallecido
+29,Carlos Bilardo,1939-03-16,Fallecido
+30,Carlos Bilardo,1939-03-16,Fallecido
+31,Carlos Bilardo,1939-03-16,Fallecido
+32,Carlos Bilardo,1939-03-16,Fallecido
+33,Carlos Bilardo,1939-03-16,Fallecido
+34,Alfio Basile,1943-01-11,Retirado
+35,Daniel Passarella,1953-05-25,Retirado
+36,Daniel Passarella,1953-05-25,Retirado
+37,Marcelo Bielsa,1955-07-21,Retirado
+38,Marcelo Bielsa,1955-07-21,Retirado
+39,Marcelo Bielsa,1955-07-21,Retirado
+40,Marcelo Bielsa,1955-07-21,Retirado
+41,Lionel Scaloni,1978-05-16,Trabajando
+42,Lionel Scaloni,1978-05-16,Trabajando
+43,Lionel Scaloni,1978-05-16,Trabajando
+44,Diego Maradona,1960-10-30,Fallecido
+45,Lionel Scaloni,1978-05-16,Trabajando
+46,Lionel Scaloni,1978-05-16,Trabajando
+47,Jorge Sampaoli,1960-03-13,Trabajando
+48,Lionel Scaloni,1978-05-16,Trabajando
+49,Lionel Scaloni,1978-05-16,Trabajando
+50,Gerardo Martino,1962-11-20,Trabajando
+51,Gerardo Martino,1962-11-20,Trabajando
+52,Jorge Sampaoli,1960-03-13,Trabajando
+53,Lionel Scaloni,1978-05-16,Trabajando
+54,Lionel Scaloni,1978-05-16,Trabajando
+55,Lionel Scaloni,1978-05-16,Trabajando
+56,Lionel Scaloni,1978-05-16,Trabajando
+57,Jorge Sampaoli,1960-03-13,Trabajando
+58,Lionel Scaloni,1978-05-16,Trabajando
+59,Lionel Scaloni,1978-05-16,Trabajando
+60,Lionel Scaloni,1978-05-16,Trabajando
+61,Alejandro Sabella,1954-05-11,Fallecido
+62,Alfio Basile,1943-01-11,Retirado
+63,Alejandro Sabella,1954-05-11,Fallecido
+64,Alejandro Sabella,1954-05-11,Fallecido
+65,Jorge Sampaoli,1960-03-13,Trabajando
+66,Alfio Basile,1943-01-11,Retirado
+67,Marcelo Bielsa,1955-07-21,Retirado
+68,Daniel Passarella,1953-05-25,Retirado
+69,Daniel Passarella,1953-05-25,Retirado
+70,Lionel Scaloni,1978-05-16,Trabajando
+71,César Luis Menotti,1938-05-11,Retirado
+72,José María Minella,1909-06-08,Fallecido
+73,César Luis Menotti,1938-05-11,Retirado
+74,César Luis Menotti,1938-05-11,Retirado
+75,Vladislao Cap,1934-05-07,Fallecido
+76,Guillermo Stábile,1905-01-17,Fallecido
+77,José María Minella,1909-06-08,Fallecido
+78,Guillermo Stábile,1905-01-17,Fallecido
+79,Guillermo Stábile,1905-01-17,Fallecido
+80,Guillermo Stábile,1905-01-17,Fallecido
+81,Guillermo Stábile,1905-01-17,Fallecido
+82,César Luis Menotti,1938-05-05,Fallecido
+83,Juan Carlos Lorenzo,1922-10-27,Fallecido
+84,Juan Carlos Lorenzo,1922-10-27,Fallecido
+85,Juan Carlos Lorenzo,1922-10-27,Fallecido
+86,Juan Carlos Lorenzo,1922-10-27,Fallecido
+87,Juan Carlos Lorenzo,1922-10-27,Fallecido
+88,César Luis Menotti,1938-05-11,Retirado
+89,Carlos Bilardo,1939-03-16,Fallecido
+90,Carlos Bilardo,1939-03-16,Fallecido
+91,César Luis Menotti,1938-05-11,Fallecido
+92,César Luis Menotti,1938-05-11,Retirado
+93,César Luis Menotti,1938-05-11,Retirado
+94,Héctor Veira,1947-04-27,Fallecido
+95,Carlos Bilardo,1939-03-16,Retirado
+96,César Luis Menotti,1938-05-11,Retirado
+97,César Luis Menotti,1938-05-11,Retirado
+98,César Luis Menotti,1938-05-11,Retirado
+99,César Luis Menotti,1938-05-11,Retirado
+100,César Luis Menotti,1938-05-11,Retirado

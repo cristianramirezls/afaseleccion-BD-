@@ -1,0 +1,484 @@
+/** Consulta 41 **/
+/** ¿Cuántos títulos en total se han ganado, sumando todas las filas? **/
+SELECT SUM(`gano_titulo(?)`) AS total_titulos_ganados
+FROM titulos;
+/** La suma total de títulos ganados es 105 **/
+
+/** Consulta 42 **/
+/** ¿Cuántos registros tienen al menos un título ganado? **/
+SELECT COUNT(*) AS registros_con_titulos
+FROM titulos
+WHERE `gano_titulo(?)` > 0;
+/** 53 registros tienen al menos un titulo. **/
+
+/** Consulta 43 **/
+/** ¿Cuál es el registro con el mayor número de títulos ganados? **/
+SELECT MAX(`gano_titulo(?)`) AS max_titulos
+FROM titulos;
+/** El registro con mayor titulos es 4. **/
+
+/** Consulta 44 **/
+/** Lista todos los registros en los que no se han ganado títulos. **/
+SELECT *
+FROM titulos
+WHERE `gano_titulo(?)` = 0;
+
+/** Los que no ha ganado nin gún título son=
+3	0	3
+4	0	4
+6	0	6
+7	0	7
+11	0	11
+12	0	12
+15	0	15
+17	0	17
+18	0	18
+19	0	19
+20	0	20
+23	0	23
+34	0	34
+35	0	35
+61	0	61
+63	0	63
+65	0	65
+66	0	66
+67	0	67
+68	0	68
+69	0	69
+70	0	70
+71	0	71
+72	0	72
+73	0	73
+76	0	76
+77	0	77
+78	0	78
+79	0	79
+80	0	80
+81	0	81
+82	0	82
+83	0	83
+84	0	84
+85	0	85
+86	0	86
+87	0	87
+88	0	88
+92	0	92
+93	0	93
+94	0	94
+95	0	95
+96	0	96
+97	0	97
+98	0	98
+99	0	99
+100	0	100. **/
+
+/** Consulta 45 **/
+/** ¿Cuál es el promedio de títulos ganados por registro? **/
+SELECT AVG(`gano_titulo(?)`) AS promedio_titulos
+FROM titulos;
+/** En promedio, cada registro tiene 1.05 títulos ganados. **/
+
+/** Consulta 46 **/
+/** ¿Cuántos registros tienen exactamente 2 títulos ganados? **/
+SELECT COUNT(*) AS registros_con_2_titulos
+FROM titulos
+WHERE `gano_titulo(?)` = 2;
+/** Hay 16 registros con exactamente 2 títulos ganados. **/
+
+/** Consulta 47 **/
+/** Devuelve los registros cuyo título tiene un identificador específico, por ejemplo, 3. **/
+SELECT *
+FROM titulos
+WHERE titulo_id_titulo = 3;
+/** Identificador 3, los títulos específicos que tiene so
+
+/** Consulta 48 **/
+/** ¿Cuáles son los identificadores únicos de títulos asociados en la tabla? **/
+SELECT DISTINCT titulo_id_titulo
+FROM titulos;
+/** Los identificadores únicos de títulos son: todos, del 1 al 100 **/
+
+/** Consulta 49 **/
+/** Muestra los primeros 3 registros con más títulos ganados, ordenados de forma descendente. **/
+SELECT *
+FROM titulos
+ORDER BY `gano_titulo(?)` DESC
+LIMIT 3;
+/** Los primeros 3 registros con más títulos ganados son=
+ 1	4	1
+10	4	10
+30	3	30
+**/
+
+/** Consulta 50 **/
+/** Muestra los registros ordenados por `titulo_id_titulo` en orden descendente. **/
+SELECT *
+FROM titulos
+ORDER BY titulo_id_titulo DESC;
+/** Los registros están ahora ordenados según el campo `titulo_id_titulo` en orden descendente=
+100	0	100
+99	0	99
+98	0	98
+97	0	97
+96	0	96
+95	0	95
+94	0	94
+93	0	93
+92	0	92
+91	1	91
+90	1	90
+89	1	89
+88	0	88
+87	0	87
+86	0	86
+85	0	85
+84	0	84
+83	0	83
+82	0	82
+81	0	81
+80	0	80
+79	0	79
+78	0	78
+77	0	77
+76	0	76
+75	2	75
+74	2	74
+73	0	73
+72	0	72
+71	0	71
+70	0	70
+69	0	69
+68	0	68
+67	0	67
+66	0	66
+65	0	65
+64	1	64
+63	0	63
+62	1	62
+61	0	61
+60	1	60
+59	3	59
+58	3	58
+57	1	57
+56	3	56
+55	1	55
+54	3	54
+53	3	53
+52	3	52
+51	3	51
+50	2	50
+49	2	49
+48	2	48
+47	3	47
+46	2	46
+45	3	45
+44	2	44
+43	3	43
+42	3	42
+41	2	41
+40	3	40
+39	3	39
+38	3	38
+37	1	37
+36	1	36
+35	0	35
+34	0	34
+33	1	33
+32	1	32
+31	1	31
+30	3	30
+29	2	29
+28	2	28
+27	2	27
+26	2	26
+25	1	25
+24	1	24
+23	0	23
+22	2	22
+21	2	21
+20	0	20
+19	0	19
+18	0	18
+17	0	17
+16	1	16
+15	0	15
+14	2	14
+13	1	13
+12	0	12
+11	0	11
+10	4	10
+9	1	9
+8	1	8
+7	0	7
+6	0	6
+5	2	5
+4	0	4
+3	0	3
+2	1	2
+1	4	1
+. **/
+
+/* Consulta 51: Muestra todos los jugadores donde debuato en river */
+SELECT id_equipo
+ FROM equipo
+where equipo_debuto= 'River Plate';
+/* jugadores donde debuato en river son=
+3
+12
+17
+18
+31
+35
+39
+48
+54
+55
+58
+68
+76
+77
+78
+82
+91
+93
+97 */
+
+/* Consulta 52: Encuentra el id del jugador que debuto en españa.  **/
+SELECT id_equipo, pais_donde_debuto
+FROM equipo
+where pais_donde_debuto='Italia';
+
+ /*Es el id 65. **/
+
+/* Consulta 53: Lista los equipos que debutaron en Argentina. */
+SELECT  id_equipo, pais_donde_debuto FROM equipo WHERE pais_donde_debuto = 'Argentina'
+/* la respuesta es=
+2	Argentina
+3	Argentina
+4	Argentina
+5	Argentina
+6	Argentina
+7	Argentina
+8	Argentina
+9	Argentina
+10	Argentina
+11	Argentina
+12	Argentina
+13	Argentina
+14	Argentina
+15	Argentina
+16	Argentina
+17	Argentina
+18	Argentina
+19	Argentina
+20	Argentina
+21	Argentina
+22	Argentina
+23	Argentina
+24	Argentina
+25	Argentina
+26	Argentina
+27	Argentina
+28	Argentina
+29	Argentina
+30	Argentina
+31	Argentina
+32	Argentina
+33	Argentina
+34	Argentina
+35	Argentina
+36	Argentina
+37	Argentina
+38	Argentina
+39	Argentina
+40	Argentina
+41	Argentina
+42	Argentina
+43	Argentina
+44	Argentina
+45	Argentina
+46	Argentina
+47	Argentina
+48	Argentina
+49	Argentina
+50	Argentina
+51	Argentina
+52	Argentina
+53	Argentina
+54	Argentina
+55	Argentina
+56	Argentina
+57	Argentina
+58	Argentina
+59	Argentina
+60	Argentina
+61	Argentina
+62	Argentina
+63	Argentina
+64	Argentina
+66	Argentina
+67	Argentina
+68	Argentina
+69	Argentina
+70	Argentina
+71	Argentina
+72	Argentina
+73	Argentina
+74	Argentina
+75	Argentina
+76	Argentina
+77	Argentina
+78	Argentina
+79	Argentina
+80	Argentina
+82	Argentina
+83	Argentina
+84	Argentina
+85	Argentina
+86	Argentina
+87	Argentina
+88	Argentina
+90	Argentina
+91	Argentina
+92	Argentina
+93	Argentina
+94	Argentina
+95	Argentina
+96	Argentina
+97	Argentina
+98	Argentina
+99	Argentina
+100	Argentina
+ */
+
+/* Consulta 54: Encuentra el id del jugador que debutó en Barcelona. */
+SELECT id_equipo FROM equipo WHERE equipo_debuto = 'Barcelona';
+/* es el id 1 (Messi) */
+
+/* Consulta 55: Lista todos los id que tienen más de 5 jugadores. */
+SELECT id_equipo
+FROM equipo
+WHERE `cantidad-equipos` > 5
+LIMIT 1000;
+/*son=
+2
+3
+5
+8
+10
+12
+13
+15
+16
+17
+22
+26
+27
+28
+30
+31
+33
+34
+35
+39
+61
+62
+63
+69
+73
+74
+75
+83
+84
+86
+89
+96
+*/
+
+/* Consulta 55: Lista todos los id que tienen más de 5 jugadores. */
+SELECT id_equipo
+FROM equipo
+WHERE `cantidad-equipos` > 5
+LIMIT 1000;
+/*son=
+2
+3
+5
+8
+10
+12
+13
+15
+16
+17
+22
+26
+27
+28
+30
+31
+33
+34
+35
+39
+61
+62
+63
+69
+73
+74
+75
+83
+84
+86
+89
+96
+*/
+
+/* Consulta 56: Encuentra el país donde debutó el ID 1. */
+SELECT pais_donde_debuto FROM equipo WHERE id_equipo = 1;
+/* fue en españa. */
+
+/* Consulta 57: Lista los id que estuvieron en 3 equipos. */
+SELECT id_equipo
+FROM equipo
+WHERE `cantidad-equipos` = 3
+LIMIT 1000;
+/* son:
+7
+25
+36
+42
+49
+55
+56
+59
+60
+71
+76
+80
+82
+91
+92
+99
+ */
+
+/* Consulta 58: Muestra los id de jugadores que debutaron en Brasil. */
+SELECT equipo_actual FROM equipo WHERE pais_donde_debuto = 'Brasil';
+/* Ninguno de buto en brasil. */
+
+/* Consulta 59: Encuentra el id con los jugadores que juegan en el atletico madrid. */
+SELECT equipo_actual, id_equipo
+FROM equipo
+where equipo_actual= 'Atlético Madrid (España)';
+/* son =
+Atlético Madrid (España)	41
+Atlético Madrid (España)	51
+Atlético Madrid (España)	59
+ */
+
+/* Consulta 60: Muestra los datos del id 4 */
+SELECT *FROM equipo
+where id_equipo= 4;
+/* los datos son=
+ 4	Retirado	5	4	Newell's Old Boys	Argentina	4*/

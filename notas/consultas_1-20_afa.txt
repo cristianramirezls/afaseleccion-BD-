@@ -1,0 +1,497 @@
+/*consulta 1
+"¿Cuáles son los nombres de los jugadores que tienen el número de camiseta 10?"
+*/
+SELECT nombre_apellido
+FROM jugador
+WHERE numero_camiseta = 10;
+/*"Los jugadores que tienen el número de camiseta 10 son =
+Lionel Messi
+Diego Maradona
+Mario Kempes
+Ricardo Bochini
+Ariel Ortega
+Miguel Brindisi
+Enrique Sívori
+Norberto Alonso
+Alejandro Sabella
+Tomás Carlovich
+Daniel Onega
+*/
+
+/*consulta 2
+Qué jugadores debutaron antes del 1 de enero de 1990?"
+*/
+SELECT nombre_apellido, fecha_debut
+FROM jugador
+WHERE fecha_debut < '1990-01-01';
+/*
+Los jugadores que debutaron antes del 1 de enero de 1990 =
+Diego Maradona	1977-02-27
+Alfredo Di Stéfano	1947-04-12
+Mario Kempes	1973-09-23
+Ricardo Bochini	1982-06-22
+Ubaldo Fillol	1974-09-20
+Daniel Passarella	1974-09-20
+Osvaldo Ardiles	1975-03-14
+Claudio Caniggia	1987-10-05
+Américo Gallego	1975-02-27
+Leopoldo Luque	1975-12-10
+Enrique Wolff	1972-09-20
+Daniel Bertoni	1976-07-04
+Jorge Valdano	1979-06-20
+José Luis Brown	1983-05-16
+Nery Pumpido	1983-03-06
+Pedro Pasculli	1983-05-27
+Héctor Enrique	1986-10-05
+Oscar Ruggeri	1983-02-27
+Sergio Goycochea	1987-04-19
+Jorge Burruchaga	1983-12-05
+Julio Olarticoechea	1982-09-23
+Diego Simeone	1988-07-14
+Daniel Valencia	1975-12-10
+Antonio Rattín	1959-12-13
+Omar Larrosa	1973-09-23
+René Houseman	1973-09-25
+Miguel Brindisi	1972-09-20
+Enrique Sívori	1957-08-04
+Amadeo Carrizo	1954-06-04
+Ángel Labruna	1945-05-06
+Félix Loustau	1942-01-16
+Ernesto Grillo	1953-07-05
+Walter Gómez	1949-03-07
+Norberto Alonso	1976-06-13
+Luis Artime	1961-03-29
+Rogelio Domínguez	1953-03-30
+Raimundo Orsi	1924-10-07
+José Sanfilippo	1957-05-18
+Silvio Marzolini	1960-04-12
+Carlos Bilardo	1961-03-16
+Antonio Alzamendi	1982-07-23
+Rubén Galván	1974-06-16
+Alejandro Sabella	1983-03-06
+Carlos Babington	1973-03-10
+Oscar Más	1965-07-25
+Tomás Carlovich	1974-05-15
+Adrián Domenech	1986-04-30
+Héctor Yazalde	1974-07-13
+Daniel Onega	1966-03-06
+Hugo Gatti	1967-06-13
+Jorge Carrascosa	1970-10-23
+Miguel Oviedo	1979-03-14
+*/
+
+/*consulta 3
+"¿Qué jugadores nacieron después del año 1970?"
+*/
+SELECT nombre_apellido, fecha_nacimiento
+FROM jugador
+WHERE YEAR(fecha_nacimiento) > 1970;
+/*
+"El jugador que nació después del año 1970 es:
+Lionel Messi	1987-06-24
+Javier Zanetti	1973-10-08
+Juan Román Riquelme	1978-06-24
+Carlos Tévez	1984-05-02
+Sergio Agüero	1988-02-06
+Ángel Di María	1988-02-14
+Hernán Crespo	1975-05-07
+Roberto Ayala	1973-04-14
+Pablo Aimar	1979-03-11
+Martín Palermo	1973-07-11
+Ariel Ortega	1974-04-03
+Gustavo López	1973-04-13
+Walter Samuel	1978-03-23
+Diego Milito	1979-12-06
+Javier Saviola	1981-11-12
+Maxi Rodríguez	1981-02-01
+Rodrigo De Paul	1994-05-24
+Lautaro Martínez	1997-08-22
+Emiliano Martínez	1992-02-09
+Nicolás Otamendi	1988-12-02
+Giovani Lo Celso	1996-09-04
+Leandro Paredes	1994-06-29
+Marcos Acuña	1991-10-28
+Enzo Fernández	2001-01-17
+Alexis Mac Allister	1998-12-24
+Paulo Dybala	1993-11-15
+Ángel Correa	1995-09-03
+Nicolás Tagliafico	1992-08-31
+Cristian Romero	1998-04-27
+Julián Álvarez	2000-01-31
+Germán Pezzella	1991-06-27
+Lisandro Martínez	1998-01-18
+Franco Armani	1986-10-16
+Exequiel Palacios	1998-05-10
+Nahuel Molina	1998-06-04
+Nicolás González	1998-06-04
+Lucas Biglia	1986-01-30
+Ever Banega	1988-06-29
+Federico Fernández	1989-02-21
+Marcos Rojo	1990-03-20
+Mauro Icardi	1993-02-19
+Ezequiel Lavezzi	1985-03-05
+Nicolás Burdisso	1981-12-04
+Matías Almeyda	1973-12-21
+Sebastián Verón	1975-09-03
+Matías Suárez	1988-09-05
+*/
+
+/*consulta 4
+"¿Cuántos jugadores han sido registrados en total?"
+*/
+SELECT COUNT(*) AS total_jugadores
+FROM jugador;
+/*"El total de jugadores registrados en la base de datos es 100."*/
+
+/*consulta 5
+"¿Cuál es la fecha de nacimiento y debut de Gabriel Batistuta?"
+*/
+SELECT nombre_apellido, fecha_nacimiento, fecha_debut
+FROM jugador
+WHERE nombre_apellido = 'Gabriel Batistuta';
+/*la fecha de nacimiento es 1969-01-02 y la fecha de debut fue 1991-06-27*/
+
+/*consulta 6
+"¿Qué jugadores tienen un identificador de debut del director técnico igual a 3?"
+*/
+SELECT nombre_apellido
+FROM jugador
+WHERE debut_id_dt = 3;
+/*"El jugador con un identificador de debut del director técnico igual a 3 es Alfredo Di Stéfano."*/
+
+/*consulta 7
+"¿Cuáles son los nombres y fechas de nacimiento de todos los jugadores registrados?"
+*/
+SELECT nombre_apellido, fecha_nacimiento
+FROM jugador;
+/*
+"Los nombres y fechas de nacimiento de los jugadores son:
+
+Lionel Messi: 24 de junio de 1987
+Diego Maradona: 30 de octubre de 1960
+Alfredo Di Stéfano: 7 de abril de 1926
+Gabriel Batistuta: 2 de enero de 1969."
+*/
+
+/*CONSULTA 8
+"¿Cuántos jugadores tienen un número de camiseta mayor que 9?"
+*/
+SELECT COUNT(*) AS total
+FROM jugador
+WHERE numero_camiseta > 9;
+/*"El número total de jugadores con un número de camiseta mayor que 9 es 46 "*/
+
+/*CONSULTA 9
+"¿Quién es el jugador más viejo según su fecha de nacimiento?"
+*/
+SELECT nombre_apellido, fecha_nacimiento
+FROM jugador
+ORDER BY fecha_nacimiento ASC
+LIMIT 1;
+/*"El jugador más viejo es Raimundo Orsi, nacido el 12 de febrero de 1901."*/
+
+/*CONSULTA 10
+¿Cuál es el nombre del jugador que tenia el numero 1 en la camiseta y que su fecha de debut fue despues del 2000  ?"
+*/
+SELECT nombre_apellido
+FROM jugador
+WHERE numero_camiseta = 1 and fecha_debut > '2000-01-01';
+/*"El jugador fue Franco Armani"*/
+
+/*CONSULTA 11
+"¿Qué jugadores debutaron después del 1 de enero de 2000?"
+*/
+SELECT nombre_apellido
+FROM jugador
+WHERE fecha_debut > '2000-01-01';
+/*"Los jugadores que debutaron después del 1 de enero de 2000 son=
+Lionel Messi
+Carlos Tévez
+Sergio Agüero
+Ángel Di María
+Diego Milito
+Javier Saviola
+Maxi Rodríguez
+Rodrigo De Paul
+Lautaro Martínez
+Emiliano Martínez
+Nicolás Otamendi
+Giovani Lo Celso
+Leandro Paredes
+Marcos Acuña
+Enzo Fernández
+Alexis Mac Allister
+Paulo Dybala
+Ángel Correa
+Nicolás Tagliafico
+Cristian Romero
+Julián Álvarez
+Germán Pezzella
+Lisandro Martínez
+Franco Armani
+Exequiel Palacios
+Nahuel Molina
+Nicolás González
+Lucas Biglia
+Ever Banega
+Federico Fernández
+Marcos Rojo
+Mauro Icardi
+Ezequiel Lavezzi
+Nicolás Burdisso
+Matías Suárez
+*/
+
+/*CONSULTA 12
+"¿Qué jugadores tienen un número de camiseta igual a 0?"
+*/
+SELECT nombre_apellido
+FROM jugador
+WHERE numero_camiseta = 0;
+/*
+Los jugadores con el número de camiseta iguaol a 0 son=
+Alfredo Di Stéfano
+Ángel Labruna
+Félix Loustau
+Ernesto Grillo
+Walter Gómez
+Raimundo Orsi
+*/
+
+/*CONSULTA 13
+"¿Cuál es el número de camiseta de Diego Maradona?"
+*/
+SELECT numero_camiseta
+FROM jugador
+WHERE nombre_apellido = 'Diego Maradona';
+/* su numero es la 10*/
+
+/*CONSULTA 14
+"¿Cuántos jugadores ganaron un título con identificador 1?"
+*/
+SELECT COUNT(*) AS total
+FROM jugador
+WHERE gano_id_titulo = 1;
+/* El número total de jugadores que ganaron un título con identificador 1 es Lionel Messi."*/
+
+/*CONSULTA 15
+"¿Qué jugadores debutaron con el director técnico identificado como 4?"
+*/
+SELECT nombre_apellido
+FROM jugador
+WHERE debut_id_dt = 4;
+/*
+"El jugador que debutó con el director técnico identificado como 4 es Gabriel Batistuta."
+*/
+
+/*CONSULTA 16
+"¿Cuáles son los jugadores que nacieron antes del 1 de enero de 1970?"
+*/
+SELECT nombre_apellido
+FROM jugador
+WHERE fecha_nacimiento < '1970-01-01';
+/*
+los jugadores que nacieron en antes de 1970=
+Diego Maradona
+Alfredo Di Stéfano
+Gabriel Batistuta
+Mario Kempes
+Ricardo Bochini
+Ubaldo Fillol
+Daniel Passarella
+Osvaldo Ardiles
+Claudio Caniggia
+Fernando Redondo
+Américo Gallego
+Leopoldo Luque
+Enrique Wolff
+Daniel Bertoni
+Jorge Valdano
+José Luis Brown
+Nery Pumpido
+Pedro Pasculli
+Héctor Enrique
+Oscar Ruggeri
+Sergio Goycochea
+Jorge Burruchaga
+Julio Olarticoechea
+Daniel Valencia
+Antonio Rattín
+Omar Larrosa
+René Houseman
+Miguel Brindisi
+Enrique Sívori
+Amadeo Carrizo
+Ángel Labruna
+Félix Loustau
+Ernesto Grillo
+Walter Gómez
+Norberto Alonso
+Luis Artime
+Rogelio Domínguez
+Raimundo Orsi
+José Sanfilippo
+Silvio Marzolini
+Carlos Bilardo
+Antonio Alzamendi
+Rubén Galván
+Alejandro Sabella
+Carlos Babington
+Oscar Más
+Tomás Carlovich
+Adrián Domenech
+Héctor Yazalde
+Daniel Onega
+Hugo Gatti
+Jorge Carrascosa
+Miguel Oviedo
+*/
+
+/*CONSULTA 17
+"¿Qué jugadores participaron en el evento identificado como 1?"
+*/
+SELECT nombre_apellido
+FROM jugador
+WHERE participo_id_participo = 1;
+/*
+"El jugador que participó en el evento identificado como 1 es Lionel Messi."
+*/
+
+/*CONSULTA 18
+"¿Quién es el jugador más joven según su fecha de nacimiento?"
+*/
+SELECT nombre_apellido, fecha_nacimiento
+FROM jugador
+ORDER BY fecha_nacimiento DESC
+LIMIT 1;
+/*
+El jugador mas joven en debutar fue Enzo fernandez
+*/
+
+/*CONSULTA 19
+"¿Qué jugadores ganaron un título con identificador mayor a 90?"
+*/
+SELECT nombre_apellido
+FROM jugador
+WHERE gano_id_titulo > 90;
+/*
+los jugadores eran=
+Alejandro Sabella
+Carlos Babington
+Oscar Más
+Tomás Carlovich
+Adrián Domenech
+Héctor Yazalde
+Daniel Onega
+Hugo Gatti
+Jorge Carrascosa
+Miguel Oviedo
+*/
+
+/*CONSULTA 20
+"¿Cuáles son los nombres y números de camiseta de todos los jugadores registrados?"
+*/
+SELECT nombre_apellido, numero_camiseta
+FROM jugador;
+/*
+Lionel Messi	10
+Diego Maradona	10
+Alfredo Di Stéfano	0
+Gabriel Batistuta	9
+Mario Kempes	10
+Javier Zanetti	4
+Juan Román Riquelme	8
+Carlos Tévez	11
+Sergio Agüero	16
+Ángel Di María	11
+Ricardo Bochini	10
+Hernán Crespo	9
+Ubaldo Fillol	1
+Daniel Passarella	6
+Roberto Ayala	2
+Osvaldo Ardiles	8
+Claudio Caniggia	7
+Pablo Aimar	8
+Fernando Redondo	5
+Martín Palermo	9
+Américo Gallego	5
+Leopoldo Luque	9
+Enrique Wolff	2
+Daniel Bertoni	7
+Jorge Valdano	11
+José Luis Brown	6
+Nery Pumpido	1
+Pedro Pasculli	19
+Héctor Enrique	12
+Oscar Ruggeri	19
+Sergio Goycochea	12
+Jorge Burruchaga	7
+Julio Olarticoechea	16
+Diego Simeone	14
+Ariel Ortega	10
+Gustavo López	15
+Walter Samuel	6
+Diego Milito	22
+Javier Saviola	7
+Maxi Rodríguez	11
+Rodrigo De Paul	7
+Lautaro Martínez	22
+Emiliano Martínez	23
+Nicolás Otamendi	19
+Giovani Lo Celso	20
+Leandro Paredes	5
+Marcos Acuña	8
+Enzo Fernández	24
+Alexis Mac Allister	20
+Paulo Dybala	21
+Ángel Correa	19
+Nicolás Tagliafico	3
+Cristian Romero	13
+Julián Álvarez	9
+Germán Pezzella	6
+Lisandro Martínez	25
+Franco Armani	1
+Exequiel Palacios	14
+Nahuel Molina	26
+Nicolás González	15
+Lucas Biglia	5
+Ever Banega	19
+Federico Fernández	17
+Marcos Rojo	16
+Mauro Icardi	9
+Ezequiel Lavezzi	22
+Nicolás Burdisso	2
+Matías Almeyda	5
+Sebastián Verón	11
+Matías Suárez	22
+Daniel Valencia	8
+Antonio Rattín	5
+Omar Larrosa	15
+René Houseman	7
+Miguel Brindisi	10
+Enrique Sívori	10
+Amadeo Carrizo	1
+Ángel Labruna	0
+Félix Loustau	0
+Ernesto Grillo	0
+Walter Gómez	0
+Norberto Alonso	10
+Luis Artime	9
+Rogelio Domínguez	1
+Raimundo Orsi	0
+José Sanfilippo	9
+Silvio Marzolini	3
+Carlos Bilardo	5
+Antonio Alzamendi	17
+Rubén Galván	8
+Alejandro Sabella	10
+Carlos Babington	8
+Oscar Más	9
+Tomás Carlovich	10
+Adrián Domenech	4
+Héctor Yazalde	11
+Daniel Onega	10
+Hugo Gatti	1
+Jorge Carrascosa	3
+Miguel Oviedo	5
+*/

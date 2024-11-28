@@ -1,0 +1,183 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema afaseleccion1
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema afaseleccion1
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `afaseleccion1` DEFAULT CHARACTER SET utf8 ;
+USE `afaseleccion1` ;
+
+-- -----------------------------------------------------
+-- Table `afaseleccion1`.`Dt`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `afaseleccion1`.`Dt` (
+  `id_dt` INT NOT NULL AUTO_INCREMENT,
+  `dt_nombre` VARCHAR(45) NOT NULL,
+  `fecha_nacimiento` DATE NULL,
+  `estado_actual_dt` VARCHAR(50) NULL,
+  PRIMARY KEY (`id_dt`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `afaseleccion1`.`titulos`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `afaseleccion1`.`titulos` (
+  `id_titulos` INT NOT NULL AUTO_INCREMENT,
+  `gano_titulo(?)` VARCHAR(10) NULL,
+  `titulo_id_titulo` INT NULL,
+  PRIMARY KEY (`id_titulos`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `afaseleccion1`.`Mundial`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `afaseleccion1`.`Mundial` (
+  `id_mundial` INT NOT NULL AUTO_INCREMENT,
+  `gano_mundial(?)` VARCHAR(10) NULL,
+  `mundial_id_mundial` INT NULL,
+  PRIMARY KEY (`id_mundial`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `afaseleccion1`.`jugador`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `afaseleccion1`.`jugador` (
+  `id_jugador` INT NOT NULL AUTO_INCREMENT,
+  `nombre_apellido` VARCHAR(100) NOT NULL,
+  `fecha_nacimiento` DATE NULL,
+  `fecha_debut` DATE NULL,
+  `numero_camiseta` INT NULL,
+  `debut_id_dt` INT NULL,
+  `gano_id_titulo` INT NULL,
+  `participo_id_participo` INT NULL,
+  PRIMARY KEY (`id_jugador`),
+  INDEX `debut_id_dt_idx` (`debut_id_dt` ASC) VISIBLE,
+  INDEX `gano_id_titulo_idx` (`gano_id_titulo` ASC) VISIBLE,
+  INDEX `participo_id_participo_idx` (`participo_id_participo` ASC) VISIBLE,
+  CONSTRAINT `debut_id_dt`
+    FOREIGN KEY (`debut_id_dt`)
+    REFERENCES `afaseleccion1`.`Dt` (`id_dt`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `gano_id_titulo`
+    FOREIGN KEY (`gano_id_titulo`)
+    REFERENCES `afaseleccion1`.`titulos` (`id_titulos`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `participo_id_participo`
+    FOREIGN KEY (`participo_id_participo`)
+    REFERENCES `afaseleccion1`.`Mundial` (`id_mundial`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `afaseleccion1`.`Posicion`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `afaseleccion1`.`Posicion` (
+  `id_posicion` INT NOT NULL AUTO_INCREMENT,
+  `posicion` VARCHAR(50) NULL,
+  `posicion_id_jugador` INT NULL,
+  PRIMARY KEY (`id_posicion`),
+  INDEX `posicion_id_jugador_idx` (`posicion_id_jugador` ASC) VISIBLE,
+  CONSTRAINT `posicion_id_jugador`
+    FOREIGN KEY (`posicion_id_jugador`)
+    REFERENCES `afaseleccion1`.`jugador` (`id_jugador`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `afaseleccion1`.`Estado`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `afaseleccion1`.`Estado` (
+  `id_estado` INT NOT NULL AUTO_INCREMENT,
+  `estado_actual_deljugador` VARCHAR(50) NULL,
+  `estado_id_jugador` INT NULL,
+  PRIMARY KEY (`id_estado`),
+  INDEX `estado_id_jugador_idx` (`estado_id_jugador` ASC) VISIBLE,
+  CONSTRAINT `estado_id_jugador`
+    FOREIGN KEY (`estado_id_jugador`)
+    REFERENCES `afaseleccion1`.`jugador` (`id_jugador`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `afaseleccion1`.`Equipo`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `afaseleccion1`.`Equipo` (
+  `id_equipo` INT NOT NULL AUTO_INCREMENT,
+  `equipo_actual` VARCHAR(50) NOT NULL,
+  `cantidad-equipos` INT NULL,
+  `equipo_id_jugador` INT NULL,
+  `equipo_debuto` VARCHAR(50) NULL,
+  `pais_donde_debuto` VARCHAR(50) NULL,
+  `equipo_id_estado` INT NULL,
+  PRIMARY KEY (`id_equipo`),
+  INDEX `equipo_id_jugador_idx` (`equipo_id_jugador` ASC) VISIBLE,
+  INDEX `equipo_id_estado_idx` (`equipo_id_estado` ASC) VISIBLE,
+  CONSTRAINT `equipo_id_jugador`
+    FOREIGN KEY (`equipo_id_jugador`)
+    REFERENCES `afaseleccion1`.`jugador` (`id_jugador`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `equipo_id_estado`
+    FOREIGN KEY (`equipo_id_estado`)
+    REFERENCES `afaseleccion1`.`Estado` (`id_estado`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `afaseleccion1`.`altura`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `afaseleccion1`.`altura` (
+  `id_altura` INT NOT NULL AUTO_INCREMENT,
+  `altura` FLOAT NULL,
+  `altura_id_jugadores` INT NULL,
+  PRIMARY KEY (`id_altura`),
+  INDEX `altura_id_jugadores_idx` (`altura_id_jugadores` ASC) VISIBLE,
+  CONSTRAINT `altura_id_jugadores`
+    FOREIGN KEY (`altura_id_jugadores`)
+    REFERENCES `afaseleccion1`.`jugador` (`id_jugador`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `afaseleccion1`.`Peso`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `afaseleccion1`.`Peso` (
+  `id_peso` INT NOT NULL AUTO_INCREMENT,
+  `peso` INT NULL,
+  `peso_id_jugadore` INT NULL,
+  PRIMARY KEY (`id_peso`),
+  INDEX `peso_id_jugadores_idx` (`peso_id_jugadore` ASC) VISIBLE,
+  CONSTRAINT `peso_id_jugadores`
+    FOREIGN KEY (`peso_id_jugadore`)
+    REFERENCES `afaseleccion1`.`jugador` (`id_jugador`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+

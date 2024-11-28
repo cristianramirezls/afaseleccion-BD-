@@ -1,0 +1,318 @@
+/*CONSULTA 21
+"¿Qué jugadores nacieron entre el 1 de enero de 1960 y el 31 de diciembre de 1970?"
+*/
+SELECT nombre_apellido
+FROM jugador
+WHERE fecha_nacimiento BETWEEN '1960-01-01' AND '1970-12-31';
+/*
+Los jugadores son= 
+Diego Maradona
+Gabriel Batistuta
+Claudio Caniggia
+Fernando Redondo
+Pedro Pasculli
+Héctor Enrique
+Oscar Ruggeri
+Sergio Goycochea
+Jorge Burruchaga
+Diego Simeone
+*/
+
+/*CONSULTA 22
+"¿Cuáles son los nombres y fechas de debut de los jugadores que debutaron antes del 1 de enero de 1980?"
+*/
+SELECT nombre_apellido, fecha_debut
+FROM jugador
+WHERE fecha_debut < '1980-01-01';
+/*
+Diego Maradona	1977-02-27
+Alfredo Di Stéfano	1947-04-12
+Mario Kempes	1973-09-23
+Ubaldo Fillol	1974-09-20
+Daniel Passarella	1974-09-20
+Osvaldo Ardiles	1975-03-14
+Américo Gallego	1975-02-27
+Leopoldo Luque	1975-12-10
+Enrique Wolff	1972-09-20
+Daniel Bertoni	1976-07-04
+Jorge Valdano	1979-06-20
+Daniel Valencia	1975-12-10
+Antonio Rattín	1959-12-13
+Omar Larrosa	1973-09-23
+René Houseman	1973-09-25
+Miguel Brindisi	1972-09-20
+Enrique Sívori	1957-08-04
+Amadeo Carrizo	1954-06-04
+Ángel Labruna	1945-05-06
+Félix Loustau	1942-01-16
+Ernesto Grillo	1953-07-05
+Walter Gómez	1949-03-07
+Norberto Alonso	1976-06-13
+Luis Artime	1961-03-29
+Rogelio Domínguez	1953-03-30
+Raimundo Orsi	1924-10-07
+José Sanfilippo	1957-05-18
+Silvio Marzolini	1960-04-12
+Carlos Bilardo	1961-03-16
+Rubén Galván	1974-06-16
+Carlos Babington	1973-03-10
+Oscar Más	1965-07-25
+Tomás Carlovich	1974-05-15
+Héctor Yazalde	1974-07-13
+Daniel Onega	1966-03-06
+Hugo Gatti	1967-06-13
+Jorge Carrascosa	1970-10-23
+Miguel Oviedo	1979-03-14
+*/
+
+/*CONSULTA 23
+"¿Qué jugadores debutaron en el mismo año en el que nacieron?"
+*/
+SELECT nombre_apellido
+FROM jugador
+WHERE YEAR(fecha_debut) = YEAR(fecha_nacimiento);
+/*
+"Ningún jugador debutó en el mismo año en el que nació."
+*/
+
+/*CONSULTA 24
+"¿Cuántos jugadores nacieron en cada década?"
+*/
+SELECT FLOOR(YEAR(fecha_nacimiento) / 10) * 10 AS decada, COUNT(*) AS total
+FROM jugador
+GROUP BY decada;
+/*
+los jugadores que nacieron en cada decada fueron=
+1980	14
+1960	9
+1920	5
+1950	20
+1970	13
+1940	11
+1990	18
+2000	2
+1930	6
+1910	1
+1900	1
+*/
+
+/*CONSULTA 25
+"¿Qué jugador tiene el debut más reciente?"
+*/
+SELECT nombre_apellido, fecha_debut
+FROM jugador
+ORDER BY fecha_debut DESC
+LIMIT 1;
+/*
+El jugador fue Ennzo fernandez.Su debut fue 2022-09-24
+*/
+
+/*CONSULTA 26
+¿Cuál es el peso promedio de los jugadores?
+*/
+SELECT AVG(peso) AS peso_promedio FROM peso;
+
+/*
+El peso promedio de los jugadores es de aproximadamente 73.4 kg. */
+
+/* 27 Consulta
+¿Cuántos jugadores pesan más de 75 kg?
+*/  
+SELECT COUNT(*) AS jugadores_con_mas_de_75kg FROM peso WHERE peso > 75;
+/*Respuesta: Hay 32 jugadores que pesan más de 75 kg. */
+
+/* 28 Consulta
+¿Cuál es el jugador con el mayor peso?
+*/  
+ SELECT peso_id_jugadore, peso FROM peso ORDER BY peso DESC LIMIT 1;
+/*El jugador con el mayor peso es el 43(Emiliano Martinez), con un peso de 88 kg.*/
+
+/* 29 Consulta
+Listar todos los jugadores con su peso en orden ascendente.
+*/  
+   SELECT peso_id_jugadore, peso FROM peso ORDER BY peso ASC;
+/*Los jugadores ordenados por peso son:
+74	58
+18	62
+76	62
+39	63
+86	64
+52	65
+85	66
+11	66
+16	68
+79	68
+73	68
+35	68
+91	68
+28	68
+81	68
+33	68
+99	69
+51	69
+82	69
+45	69
+93	69
+2	70
+9	70
+66	70
+24	70
+90	70
+59	70
+15	70
+29	70
+80	70
+54	71
+23	71
+92	71
+58	71
+1	72
+75	72
+78	72
+83	72
+89	72
+95	72
+97	72
+100	72
+14	72
+17	72
+21	72
+32	72
+36	72
+42	72
+47	72
+49	72
+88	72
+60	72
+62	72
+61	73
+68	73
+71	73
+87	74
+70	74
+22	74
+94	74
+96	74
+6	75
+7	75
+50	75
+10	75
+34	75
+65	75
+46	75
+27	76
+41	76
+48	76
+98	76
+8	77
+13	77
+5	77
+56	77
+12	77
+19	78
+84	79
+53	79
+67	79
+69	79
+40	79
+38	79
+3	79
+31	79
+72	80
+77	80
+26	80
+4	81
+25	81
+55	82
+30	82
+44	82
+64	82
+63	83
+37	83
+57	85
+20	85
+43	88*/
+
+/* 30 Consulta
+¿Cuál es la diferencia de peso entre el jugador más pesado y el más liviano?
+*/  
+ SELECT MAX(peso) - MIN(peso) AS diferencia_peso FROM peso;
+ /* Respuesta: La diferencia de peso entre el jugador más pesado y el más liviano es de 30 kg. */
+
+/*31 consulta*/
+/** Obtener la altura promedio de todos los jugadores. */
+SELECT AVG(altura) AS promedio_altura FROM altura;
+/** La altura promedio es de 1.76 metros. */
+
+/*32 consulta*/
+/** Obtener la altura máxima registrada. */
+SELECT MAX(altura) AS altura_maxima FROM altura;
+/** La altura máxima registrada es de 1.95 metros. */
+
+/*33 consulta*/
+/** Obtener la altura mínima registrada. */
+SELECT MIN(altura) AS altura_minima FROM altura;
+/** La altura mínima registrada es de 1.63 metros. */
+
+/*34 consulta*/
+/** Contar cuántos jugadores tienen una altura mayor a 1.80 metros. */
+SELECT COUNT(*) AS jugadores_altos FROM altura WHERE altura > 1.80;
+/** Hay 28 jugadores con una altura mayor a 1.80 metros. */
+
+/*35 consulta*/
+/** Listar las alturas únicas registradas. */
+SELECT DISTINCT altura FROM altura;
+/** Las alturas únicas registradas son: 
+1.7
+1.65
+1.76
+1.85
+1.82
+1.78
+1.73
+1.8
+1.68
+1.84
+1.81
+1.77
+1.69
+1.75
+1.86
+1.87
+1.74
+1.88
+1.83
+1.72
+1.95
+1.71
+1.89
+1.9
+1.63
+1.91
+1.79
+*/
+
+/*36 consulta*/
+/** Obtener el número total de registros en la tabla. */
+SELECT COUNT(*) AS total_registros FROM altura;
+/** El número total de registros es 100. */
+
+/*37 consulta*/
+/** Obtener las alturas ordenadas de forma descendente. */
+SELECT altura FROM altura ORDER BY altura DESC;
+/** Las alturas ordenadas de forma descendente son: 1.95, 1.91, 1.9, 1.89, 1.88, 1.87, 1.87, 1.87, 1.86, 1.86, 1.86, 1.85, 1.85, 1.85, 1.85, 1.84, 1.83, 1.83, 1.83, 1.83, 1.83, 1.83, 1.82, 1.82, 1.82, 1.82, 1.81, 1.81, 1.8, 1.8, 1.8, 1.8, 1.8, 1.8, 1.79, 1.78, 1.78, 1.78, 1.78, 1.78, 1.78, 1.78, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.77, 1.76, 1.76, 1.76, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.75, 1.74, 1.74, 1.74, 1.74, 1.74, 1.74, 1.74, 1.74, 1.74, 1.74, 1.73, 1.73, 1.73, 1.73, 1.73, 1.73, 1.73, 1.72, 1.72, 1.72, 1.72, 1.72, 1.72, 1.71, 1.71, 1.7, 1.7, 1.7, 1.7, 1.7, 1.7, 1.69, 1.69, 1.68, 1.68, 1.68, 1.68, 1.68, 1.65, 1.65, 1.63 metros. */
+
+/*38 consulta*/
+/** Obtener la suma de todas las alturas registradas. */
+SELECT SUM(altura) AS suma_alturas FROM altura;
+/** La suma de todas las alturas es 176.97 metros. */
+
+/*39 consulta*/
+/** Obtener el jugador (por id) con la altura más alta. */
+SELECT altura_id_jugadores FROM altura WHERE altura = (SELECT MAX(altura) FROM altura);
+/** El jugador con la altura más alta tiene el id 43,es Emiliano Martinez. */
+
+/*40 consulta*/
+/** Obtener el jugador (por id) con la altura más baja. */
+SELECT altura_id_jugadores FROM altura WHERE altura = (SELECT MIN(altura) FROM altura);
+/** El jugador con la altura más baja tiene el id 76. */

@@ -1,0 +1,101 @@
+id_equipo,equipo_actual ,cantidad-equipos ,equipo_id_jugador,equipo_debuto,pais_donde_debuto,equipo_id_estado
+1,Inter Miami,2,1,Barcelona,España,1
+2,Retirado,6,2,Argentinos Juniors,Argentina,2
+3,Retirado,6,3,River Plate,Argentina,3
+4,Retirado,5,4,Newell's Old Boys,Argentina,4
+5,Retirado,8,5,Instituto,Argentina,5
+6,Retirado,2,6,Talleres (RE),Argentina,6
+7,Retirado,3,7,Boca Juniors,Argentina,7
+8,Retirado,6,8,Boca Juniors,Argentina,8
+9,Retirado,4,9,Independiente,Argentina,9
+10,Benfica (Portugal),6,10,Rosario Central,Argentina,10
+11,Retirado,1,11,Independiente,Argentina,11
+12,Retirado,7,12,River Plate,Argentina,12
+13,Retirado,6,13,Quilmes,Argentina,13
+14,Retirado,2,14,Sarmiento de Junín,Argentina,14
+15,Retirado,6,15,Ferro Carril Oeste,Argentina,15
+16,Retirado,7,16,Instituto,Argentina,16
+17,Retirado,7,17,River Plate,Argentina,17
+18,Retirado,4,18,River Plate,Argentina,18
+19,Retirado,4,19,Argentinos Juniors,Argentina,19
+20,Retirado,5,20,Estudiantes LP,Argentina,20
+21,Retirado,2,21,Newell's Old Boys,Argentina,21
+22,Retirado,7,22,Unión de Santa Fe,Argentina,22
+23,Retirado,4,23,Racing Club,Argentina,23
+24,Retirado,5,24,Quilmes,Argentina,24
+25,Retirado,3,25,Newell's Old Boys,Argentina,25
+26,Retirado,6,26,Estudiantes LP,Argentina,26
+27,Retirado,6,27,Unión de Santa Fe,Argentina,27
+28,Retirado,6,28,Colón de Santa Fe,Argentina,28
+29,Retirado,2,29,Lanús,Argentina,29
+30,Retirado,8,30,Boca Juniors,Argentina,30
+31,Retirado,9,31,River Plate,Argentina,31
+32,Retirado,5,32,Arsenal de Sarandí,Argentina,32
+33,Retirado,7,33,Racing Club,Argentina,33
+34,Retirado,6,34,Vélez Sarsfield,Argentina,34
+35,Retirado,7,35,River Plate,Argentina,35
+36,Retirado,3,36,Independiente,Argentina,36
+37,Retirado,5,37,Newell's Old Boys,Argentina,37
+38,Retirado,5,38,Racing Club,Argentina,38
+39,Retirado,9,39,River Plate,Argentina,39
+40,Retirado,4,40,Newell's Old Boys,Argentina,40
+41,Atlético Madrid (España),4,41,Racing Club,Argentina,41
+42,Inter de Milán,3,42,Racing Club,Argentina,42
+43,Aston Villa (Inglaterra),4,43,Independiente,Argentina,43
+44,Benfica (Portugal),5,44,Vélez Sarsfield,Argentina,44
+45,Tottenham Hotspur,4,45,Rosario Central,Argentina,45
+46,Roma (Italia),5,46,Boca Juniors,Argentina,46
+47,Sevilla FC (España),4,47,Ferro Carril Oeste,Argentina,47
+48,Chelsea FC (Inglaterra),2,48,River Plate,Argentina,48
+49,Liverpool FC (Inglaterra),3,49,Argentinos Juniors,Argentina,49
+50,Roma (Italia),4,50,Instituto,Argentina,50
+51,Atlético Madrid (España),2,51,San Lorenzo,Argentina,51
+52,Lyon (Francia),4,52,Banfield,Argentina,52
+53,Tottenham Hotspur (Inglaterra),4,53,Belgrano,Argentina,53
+54,Manchester City (Inglaterra),2,54,River Plate,Argentina,54
+55,Real Betis (España),3,55,River Plate,Argentina,55
+56,Manchester United (Inglaterra),3,56,Newell's Old Boys,Argentina,56
+57,River Plate,2,57,Deportivo Merlo,Argentina,57
+58,Bayer Leverkusen (Alemania),2,58,River Plate,Argentina,58
+59,Atlético Madrid (España),3,59,Boca Juniors,Argentina,59
+60,Fiorentina (Italia),3,60,Argentinos Juniors,Argentina,60
+61,Retirado,7,61,Argentinos Juniors,Argentina,61
+62,Al-Shabab (Arabia Saudita),6,62,Boca Juniors,Argentina,62
+63,Retirado,6,63,Estudiantes LP,Argentina,63
+64,Boca Juniors,5,64,Estudiantes LP,Argentina,64
+65,Galatasaray (Turquía),4,65,Sampdoria,Italia,65
+66,Retirado,5,66,Estudiantes (BA),Argentina,66
+67,Retirado,5,67,Boca Juniors,Argentina,67
+68,Retirado,5,68,River Plate,Argentina,68
+69,Retirado,7,69,Estudiantes LP,Argentina,69
+70,River Plate,2,70,Belgrano,Argentina,70
+71,Retirado,3,71,Talleres (C),Argentina,71
+72,Retirado,1,72,Boca Juniors,Argentina,72
+73,Retirado,7,73,Huracán,Argentina,73
+74,Retirado,7,74,Defensores de Belgrano,Argentina,74
+75,Retirado,6,75,Huracán,Argentina,75
+76,Retirado,3,76,River Plate,Argentina,76
+77,Retirado,1,77,River Plate,Argentina,77
+78,Retirado,1,78,River Plate,Argentina,78
+79,Retirado,2,79,Dock Sud,Argentina,79
+80,Retirado,3,80,Independiente,Argentina,80
+81,Retirado,4,81,Nacional,Uruguay,81
+82,Retirado,3,82,River Plate,Argentina,82
+83,Retirado,6,83,Atlanta,Argentina,83
+84,Retirado,6,84,Racing Club,Argentina,84
+85,Retirado,5,85,Independiente,Argentina,85
+86,Retirado,7,86,San Lorenzo,Argentina,86
+87,Retirado,2,87,Ferro Carril Oeste,Argentina,87
+88,Retirado,5,88,San Lorenzo,Argentina,88
+89,Retirado,9,89,Sud América,Uruguay,89
+90,Retirado,1,90,Independiente,Argentina,90
+91,Retirado,3,91,River Plate,Argentina,91
+92,Retirado,3,92,Huracán,Argentina,92
+93,Retirado,5,93,River Plate,Argentina,93
+94,Retirado,4,94,Central Córdoba (R),Argentina,94
+95,Retirado,5,95,Argentinos Juniors,Argentina,95
+96,Retirado,6,96,Piraña,Argentina,96
+97,Retirado,4,97,River Plate,Argentina,97
+98,Retirado,4,98,Atlanta,Argentina,98
+99,Retirado,3,99,Banfield,Argentina,99
+100,Retirado,4,100,Talleres (C),Argentina,100

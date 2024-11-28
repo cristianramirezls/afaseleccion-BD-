@@ -1,0 +1,159 @@
+/* Consulta 81: Muestra los directores técnicos nacidos en el mismo año que el director técnico con ID 1. */
+SELECT dt_nombre FROM dt WHERE EXTRACT(YEAR FROM fecha_nacimiento) = (SELECT EXTRACT(YEAR FROM fecha_nacimiento) FROM dt WHERE id_dt = 1)
+group by dt_nombre;
+/* El directores técnicos nacido en el mismo año que el director técnico con ID 1 es solo José Pékerman,nadie mas. */
+
+/* Consulta 82: Lista los directores técnicos cuyo nombre contiene la letra 'c'. */
+SELECT dt_nombre FROM dt WHERE dt_nombre LIKE '%c%'
+group by dt_nombre;
+/* Los directores técnicos cuyo nombre contiene la letra 'c'=
+César Luis Menotti
+Vladislao Cap
+Marcelo Bielsa
+Juan Carlos Lorenzo
+Carlos Bilardo
+Lionel Scaloni
+Héctor Veira
+ */
+
+/* Consulta 83: Encuentra el director técnico más antiguo. */
+SELECT dt_nombre,fecha_nacimiento FROM dt ORDER BY fecha_nacimiento ASC LIMIT 1;
+/* El director técnico más antiguo es Guillermo Stábile, nacidso en 1905-01-17 */
+
+/* Consulta 84: Muestra los directores técnicos que tienen un nombre que termina en 'o'. */
+SELECT dt_nombre FROM dt WHERE dt_nombre LIKE '%o'
+group by dt_nombre;
+/* Los directores técnicos con un nombre que termina en 'o' son=
+Juan Carlos Lorenzo
+Carlos Bilardo
+Gerardo Martino
+ */
+
+/* Consulta 85: Lista los directores técnicos que nacieron en un año impar. */
+SELECT dt_nombre FROM dt WHERE EXTRACT(YEAR FROM fecha_nacimiento) % 2 = 1
+group by dt_nombre;
+/* Los directores técnicos nacidos en un año impar son=
+José Pékerman
+Guillermo Stábile
+Alfio Basile
+Daniel Passarella
+Marcelo Bielsa
+Carlos Bilardo
+José María Minella
+Héctor Veira
+ */
+
+/* Consulta 86: Encuentra el director técnico que nació en el mes de enero. */
+SELECT dt_nombre,fecha_nacimiento FROM dt WHERE EXTRACT(MONTH FROM fecha_nacimiento) = 1
+group by dt_nombre,fecha_nacimiento;
+/* Los directores técnicos nacidos en el mes de enero son Guillermo Stábile en 1905-01-17 y Alfio Basile en 1943-01-11 . */
+
+/* Consulta 87: Muestra los directores técnicos cuyo nombre comienza con 'J'. */
+SELECT dt_nombre FROM dt WHERE dt_nombre LIKE 'J%'
+group by dt_nombre;
+/* los directores técnicos cuyo nombre comienza con 'J' son José Pékerman,Juan Carlos Lorenzo,Jorge Sampaoli y José María Minella */
+
+/* Consulta 88: Lista los directores técnicos que nacieron en la década de 1940. */
+SELECT dt_nombre FROM dt WHERE fecha_nacimiento BETWEEN '1940-01-01' AND '1949-12-31'
+group by dt_nombre;
+/* Los directores técnicos nacidos en la década de 1940 son José Pékerman,Alfio Basile y Héctor Veira */
+
+/* Consulta 89: Encuentra el director técnico que nació en el día 17 de cualquier mes. */
+SELECT dt_nombre FROM dt WHERE EXTRACT(DAY FROM fecha_nacimiento) = 17
+group by dt_nombre;
+/* El director técnico nacido el día 17 de cualquier mes es Guillermo Stábile*/
+
+/* Consulta 90: Muestra los directores técnicos cuyo estado actual es desconocido. */
+SELECT dt_nombre FROM dt WHERE estado_actual_dt IS NULL;
+/* Los directores técnicos cuyo estado actual es desconocido es ninguno, se conoce sus estados actuales. */
+
+/* Consulta 91: Muestra todas las posiciones solamente de los arqueros. */
+SELECT id_posicion,posicion FROM posicion
+where posicion = 'Arquero';
+/*  Todas las posiciones solamente de los arqueros son=
+ 13	Arquero
+27	Arquero
+31	Arquero
+43	Arquero
+84	Arquero
+98	Arquero
+ */
+
+/* Consulta 92: Encuentra la posición con el ID más alto. */
+SELECT id_posicion,posicion FROM posicion ORDER BY id_posicion DESC LIMIT 1;
+/* La posición con el ID más alto es el ID 100,la posicion es Delantero. */
+
+/* Consulta 93: Lista las posiciones que son Delantero. */
+SELECT posicion_id_jugador FROM posicion WHERE posicion = 'Delantero';
+/* Los jugadores con las posiciones de Delantero tienen los IDs=
+1
+3
+4
+5
+8
+9
+12
+17
+20
+22
+24
+25
+28
+32
+35
+38
+39
+42
+52
+53
+58
+60
+66
+69
+71
+72
+74
+77
+78
+81
+83
+93
+96
+100
+ */
+
+/* Consulta 94: Encuentra la posición con el nombre más largo. */
+SELECT posicion FROM posicion ORDER BY LENGTH(posicion) DESC LIMIT 1;
+/* La posición con el nombre más largo es Mediocampista ofensivo. */
+
+/* Consulta 95: Muestra las posiciones que tienen un nombre que termina en 'o'. */
+SELECT posicion FROM posicion WHERE posicion LIKE '%o'
+group by posicion;
+/* Las posiciones que terminan en 'o' son Delantero,Mediocampista ofensivo y arquero */
+
+/* Consulta 96: Lista los jugadores que tienen la posición de Mediocampista ofensivo. */
+SELECT posicion_id_jugador FROM posicion WHERE posicion = 'Mediocampista ofensivo';
+/* Los jugadores con la posición de Mediocampista ofensivo tiene el ID 2,7,10,11 y 18. */
+
+/* Consulta 97: Encuentra la posición con el ID más bajo. */
+SELECT posicion FROM posicion ORDER BY id_posicion ASC LIMIT 1;
+/* La posición con el ID más bajo es Delantero. */
+
+/* Consulta 98: Muestra las posiciones que contienen la palabra 'ofensivo'. */
+SELECT posicion FROM posicion WHERE posicion LIKE '%ofensivo%'
+group by posicion;
+/* La posición que contiene la palabra 'ofensivo' es Mediocampista ofensivo. */
+
+/* Consulta 99: Lista las posiciones que tienen un nombre que comienza con 'M'. */
+SELECT posicion FROM posicion WHERE posicion LIKE 'M%'
+group by posicion;
+/* La posición que comienza con 'M' es Mediocampista ofensivo y Mediocampista . */
+
+/* Consulta 100: Usando la funcion INNER JOIN.
+Pone los datos del id '1' y los datos del director tecnico que lo hizo debutar en la seleccion. */
+SELECT * FROM jugador a
+INNER JOIN dt b ON a.debut_id_dt = b.id_dt
+where id_jugador='1';
+/* Los datos del id '1' y los datos del director tecnico que lo hizo debutar en la seleccion son
+1	Lionel Messi	1987-06-24	2005-08-17	10	1	1	1	1	José Pékerman	1949-09-03
+*/

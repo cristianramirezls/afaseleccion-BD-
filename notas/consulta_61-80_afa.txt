@@ -1,0 +1,313 @@
+/* Consulta 61: Lista todos los equipos que debutaron en el mismo país que el equipo con ID 3. */
+SELECT  id_equipo, pais_donde_debuto
+FROM equipo
+WHERE pais_donde_debuto = (
+    SELECT pais_donde_debuto
+    FROM equipo
+    WHERE id_equipo = 3
+);
+/* Equipo donde debutaron en el mismo país que el ID 3 es =
+2	Argentina
+3	Argentina
+4	Argentina
+5	Argentina
+6	Argentina
+7	Argentina
+8	Argentina
+9	Argentina
+10	Argentina
+11	Argentina
+12	Argentina
+13	Argentina
+14	Argentina
+15	Argentina
+16	Argentina
+17	Argentina
+18	Argentina
+19	Argentina
+20	Argentina
+21	Argentina
+22	Argentina
+23	Argentina
+24	Argentina
+25	Argentina
+26	Argentina
+27	Argentina
+28	Argentina
+29	Argentina
+30	Argentina
+31	Argentina
+32	Argentina
+33	Argentina
+34	Argentina
+35	Argentina
+36	Argentina
+37	Argentina
+38	Argentina
+39	Argentina
+40	Argentina
+41	Argentina
+42	Argentina
+43	Argentina
+44	Argentina
+45	Argentina
+46	Argentina
+47	Argentina
+48	Argentina
+49	Argentina
+50	Argentina
+51	Argentina
+52	Argentina
+53	Argentina
+54	Argentina
+55	Argentina
+56	Argentina
+57	Argentina
+58	Argentina
+59	Argentina
+60	Argentina
+61	Argentina
+62	Argentina
+63	Argentina
+64	Argentina
+66	Argentina
+67	Argentina
+68	Argentina
+69	Argentina
+70	Argentina
+71	Argentina
+72	Argentina
+73	Argentina
+74	Argentina
+75	Argentina
+76	Argentina
+77	Argentina
+78	Argentina
+79	Argentina
+80	Argentina
+82	Argentina
+83	Argentina
+84	Argentina
+85	Argentina
+86	Argentina
+87	Argentina
+88	Argentina
+90	Argentina
+91	Argentina
+92	Argentina
+93	Argentina
+94	Argentina
+95	Argentina
+96	Argentina
+97	Argentina
+98	Argentina
+99	Argentina
+100	Argentina*/
+
+/* Consulta 62: Encuentra ID más alto. */
+SELECT id_equipo FROM equipo ORDER BY id_equipo DESC LIMIT 1;
+/*  El ID más alto es el 100. */
+
+/* Consulta 63: Muestrame los datos de los 2 jugadores que debutaron en uruguay. */
+SELECT *FROM equipo
+WHERE pais_donde_debuto ='Uruguay'
+/* Los datos de los 2 jugadores son =
+81	Retirado	4	81	Nacional	Uruguay	81
+89	Retirado	9	89	Sud América	Uruguay	89
+ */
+
+/* Consulta 64: Lista los equipos que debutaron en un país diferente al de ID 2. */
+SELECT id_equipo
+FROM equipo
+WHERE pais_donde_debuto != (
+    SELECT pais_donde_debuto
+    FROM equipo
+    WHERE id_equipo = 2
+);
+/* Son=
+1
+65
+81
+89
+ */
+
+/* Consulta 65: Encuentra el equipo con el nombre más largo. */
+SELECT equipo_actual FROM equipo ORDER BY LENGTH(equipo_actual) DESC LIMIT 1;
+/* El nombre más largo es Tottenham Hotspur (Inglaterra). */
+
+/* Consulta 66: Muestra el ID del jugador que debuto en un país que comienza con 'E'. */
+SELECT id_equipo,pais_donde_debuto FROM equipo WHERE pais_donde_debuto LIKE 'E%';
+/* El ID que debuto en un país que comienza con 'E' es el ID 1, en españa. */
+
+/* Consulta 67: Lista los Id de juagdores que tienen un número impar de jugadores. */
+SELECT id_equipo
+FROM equipo
+WHERE id_equipo % 2 = 1;
+/* Los ID de los juagdores con un número impar son =
+1
+3
+5
+7
+9
+11
+13
+15
+17
+19
+21
+23
+25
+27
+29
+31
+33
+35
+37
+39
+41
+43
+45
+47
+49
+51
+53
+55
+57
+59
+61
+63
+65
+67
+69
+71
+73
+75
+77
+79
+81
+83
+85
+87
+89
+91
+93
+95
+97
+99. */
+
+/* Consulta 68: Encuentra el equipo que debutó en el país con el nombre más corto. */
+SELECT id_equipo, pais_donde_debuto FROM equipo ORDER BY LENGTH(pais_donde_debuto) ASC LIMIT 1;
+/*El ID del jugador que debutó en el país con el nombre más corto es el ID 65, en Italia. */
+
+/* Consulta 69: Muestra los equipos de los jugadores  que debutaron en un equipo que tiene un nombre que termina en 'o'. */
+SELECT id_equipo,equipo_debuto FROM equipo WHERE equipo_debuto LIKE '%o';
+/* Los ID de jugadores  que debutaron en un equipo que tiene un nombre que termina en 'o' son=
+ 5	Instituto
+16	Instituto
+50	Instituto
+51	San Lorenzo
+53	Belgrano
+57	Deportivo Merlo
+70	Belgrano
+74	Defensores de Belgrano
+86	San Lorenzo
+88	San Lorenzo*/
+
+/* Consulta 70: Id de los que debutaron en un país que contiene la letra 'u'. */
+SELECT id_equipo,pais_donde_debuto FROM equipo WHERE pais_donde_debuto LIKE '%u%';
+/* Id de jugadores que debutaron en un país que contiene la letra 'u' son=
+ 81	Uruguay
+89	Uruguay*/
+
+/* Consulta 71: Muestra todos los datos del dt 8. */
+SELECT * FROM dt
+where id_dt='8';
+/* Los datos son =8	,Marcelo Bielsa	,1955-07-21	,Trabajando */
+
+/* Consulta 72: Encuentra el director técnico más joven. */
+SELECT dt_nombre, fecha_nacimiento FROM dt ORDER BY fecha_nacimiento DESC LIMIT 1;
+/*El director técnico más joven es =Lionel Scaloni,	nacio en 1978-05-16  */
+
+/* Consulta 73: Lista los directores técnicos que están retirados. */
+SELECT dt_nombre FROM dt WHERE estado_actual_dt = 'Retirado'
+group by dt_nombre;
+/* Los directores técnicos retirados son =
+José Pékerman
+César Luis Menotti
+Alfio Basile
+Daniel Passarella
+Marcelo Bielsa
+Carlos Bilardo
+ */
+
+/* Consulta 74: Encuentra el director técnico con el nombre más largo. */
+SELECT dt_nombre FROM dt ORDER BY LENGTH(dt_nombre) DESC LIMIT 1;
+/*El director técnico con el nombre más largo es José María Minella . */
+
+/* Consulta 75: Muestra los directores técnicos nacidos antes de 1950. */
+SELECT dt_nombre FROM dt 
+WHERE fecha_nacimiento < '1950-01-01'
+group by dt_nombre ;
+/* Los directores técnicos nacidos antes de 1950 son =
+José Pékerman
+César Luis Menotti
+Guillermo Stábile
+Alfio Basile
+Vladislao Cap
+Juan Carlos Lorenzo
+Carlos Bilardo
+José María Minella
+Héctor Veira
+ */
+
+/* Consulta 76: Lista los directores técnicos que están fallecidos. */
+SELECT dt_nombre FROM dt WHERE estado_actual_dt = 'Fallecido'
+group by dt_nombre;
+/* Los directores técnicos fallecidos son =
+Guillermo Stábile
+Vladislao Cap
+Juan Carlos Lorenzo
+Carlos Bilardo
+Diego Maradona
+Alejandro Sabella
+José María Minella
+César Luis Menotti
+Héctor Veira
+. */
+
+/* Consulta 77: Encuentra el director técnico con el ID más alto. */
+SELECT id_dt,dt_nombre FROM dt ORDER BY id_dt DESC LIMIT 1;
+/* El director técnico con el ID más alto es César Luis Menotti, con el ID 100. */
+
+/* Consulta 78: Muestra los directores técnicos nacidos después de 1960. */
+SELECT dt_nombre FROM dt WHERE fecha_nacimiento > '1960-01-01'
+group by dt_nombre;
+/* Los directores técnicos nacidos después de 1960 son=
+Lionel Scaloni
+Diego Maradona
+Jorge Sampaoli
+Gerardo Martino
+ */
+
+/* Consulta 79: Lista los directores técnicos que no están retirados. */
+SELECT dt_nombre FROM dt WHERE estado_actual_dt != 'Retirado'
+group by dt_nombre;
+/* Los directores técnicos que no están retirados son =
+Guillermo Stábile
+Vladislao Cap
+Marcelo Bielsa
+Juan Carlos Lorenzo
+Carlos Bilardo
+Lionel Scaloni
+Diego Maradona
+Jorge Sampaoli
+Gerardo Martino
+Alejandro Sabella
+José María Minella
+César Luis Menotti
+Héctor Veira
+ */
+
+/* Consulta 80: Encuentra el director técnico con el nombre más corto. */
+SELECT dt_nombre FROM dt ORDER BY LENGTH(dt_nombre) ASC LIMIT 1;
+/* El director técnico con el nombre más corto es Alfio Basile. */
